@@ -1,3 +1,6 @@
+// Puppeteer configuration - must be set before requiring puppeteer
+process.env.PUPPETEER_CACHE_DIR = process.env.PUPPETEER_CACHE_DIR || '/home/pptruser/.cache/puppeteer';
+
 const express = require('express');
 const puppeteer = require('puppeteer');
 const { URL } = require('url');
@@ -65,7 +68,9 @@ app.get('/screenshot', async (req, res) => {
         '--no-first-run',
         '--no-zygote',
         '--single-process',
-        '--disable-gpu'
+        '--disable-gpu',
+        '--disable-web-security',
+        '--disable-features=VizDisplayCompositor'
       ]
     });
     
