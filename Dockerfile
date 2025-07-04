@@ -12,7 +12,14 @@ RUN apt-get update && apt-get install -y \
     libxrandr2 \
     libasound2 \
     libpangocairo-1.0-0 \
+    libstdc++6 \
     libatk1.0-0 \
+    libx11-6 \
+    libc6 \
+    libx11-xcb1 \
+    libxcb1 \
+    libcairo2 \
+    libcups2 \
     libcairo-gobject2 \
     libgtk-3-0 \
     libgdk-pixbuf2.0-0 \
@@ -25,10 +32,16 @@ RUN apt-get update && apt-get install -y \
     libxrender1 \
     libxtst6 \
     libxss1 \
+    lsb-release \
     libglib2.0-0 \
     libnss3 \
     libnspr4 \
+    libpango-1.0-0 \
     libdbus-1-3 \
+    libexpat1 \
+    libgcc1 \
+    libfontconfig1 \
+    libgbm1 \
     libatk-bridge2.0-0 \
     libdrm2 \
     libxkbcommon0 \
