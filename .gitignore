@@ -32,6 +32,9 @@ coverage
 # bolt
 .bolt
 
+# 7zip
+*.7z
+
 # Bower dependency directory (https://bower.io/)
 bower_components
 
