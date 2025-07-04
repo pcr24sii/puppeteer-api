@@ -89,7 +89,7 @@ app.get('/screenshot', async (req, res) => {
     // Navigate to the URL with timeout
     await page.goto(url, { 
       waitUntil: 'networkidle2',
-      timeout: 30000 
+      timeout: 10000 
     });
     
     // Wait a bit for dynamic content to load - using setTimeout wrapped in Promise
