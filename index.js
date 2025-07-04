@@ -92,8 +92,8 @@ app.get('/screenshot', async (req, res) => {
       timeout: 30000 
     });
     
-    // Wait a bit for dynamic content to load
-    await page.waitForTimeout(2000);
+    // Wait a bit for dynamic content to load - using setTimeout wrapped in Promise
+    await new Promise(resolve => setTimeout(resolve, 2000));
     
     // Take screenshot
     const screenshot = await page.screenshot({
