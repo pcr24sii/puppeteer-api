@@ -1,7 +1,7 @@
 # Use the official Node.js runtime as the base image
 FROM node:18-slim
 
-# Install necessary dependencies for Puppeteer
+# Install necessary dependencies for Puppeteer and Chrome
 RUN apt-get update && apt-get install -y \
     wget \
     gnupg \
@@ -48,6 +48,9 @@ COPY package*.json ./
 # Install app dependencies
 RUN npm ci --only=production
 
+# Install Puppeteer browsers (Chrome)
+RUN npx puppeteer browsers install chrome
+
 # Copy app source code
 COPY . .
 
@@ -55,7 +58,8 @@ COPY . .
 RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
     && mkdir -p /home/pptruser/Downloads \
     && chown -R pptruser:pptruser /home/pptruser \
-    && chown -R pptruser:pptruser /usr/src/app
+    && chown -R pptruser:pptruser /usr/src/app \
+    && chown -R pptruser:pptruser /root/.cache/puppeteer
 
 # Switch to non-root user
 USER pptruser
